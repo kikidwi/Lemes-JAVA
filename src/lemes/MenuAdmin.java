@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package lemes;
 import java.util.*;
 
-/**
- *
- * @author Zikri
- */
+
 public class MenuAdmin {
     //private admin beritaPedoman;
     //admin admin = new admin();
@@ -45,9 +38,6 @@ public class MenuAdmin {
     }
 
     public void displayBerita(){
-        for (int i = 0; i < 4; i++) {
-            System.out.println(Berita[i]);
-        }
         if(Berita == null){
             System.out.println("Berita Masih Kosong");
         }else{
@@ -57,7 +47,7 @@ public class MenuAdmin {
                     System.out.println("Judul Berita : " + Berita[i].getJudulBerita());
                     System.out.println("ISI : ");
                     System.out.println(Berita[i].getIsiBerita());
-                    System.out.println("Tanggal Upload " + Berita[i].getTanggal());
+                    System.out.println("Tanggal Upload : " + Berita[i].getTanggal());
                     System.out.println(" ");
                 }
             } 
@@ -87,7 +77,7 @@ public class MenuAdmin {
         System.out.println("2. Tambah Pedoman");
         System.out.println("3. Show Berita");
         System.out.println("4. Show Pedoman");
-        System.out.println("0. Keluar");
+        System.out.println("0. LOGOUT");
         System.out.print("pilih menu : ");
     }
 

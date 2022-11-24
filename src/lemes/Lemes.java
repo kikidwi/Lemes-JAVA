@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lemes;
 import java.util.*;
-/**
- *
- * @author Zikri
- */
+
 public class Lemes {
 
     /**
@@ -40,8 +32,7 @@ public class Lemes {
                 String password = scan.next();
 
                 SignUp akunBaru = new SignUp(username, name, password); 
-                System.out.println(akunBaru.getUsername());
-                System.out.println(akunBaru.getName());
+
                 
                 login.tambahAkun(akunBaru);
                 System.out.println("MENU ");
@@ -70,5 +61,5 @@ public class Lemes {
         }
         
     }
-    
+
 }

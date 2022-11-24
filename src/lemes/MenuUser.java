@@ -1,27 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package lemes;
 import java.util.*;
 
-/**
- *
- * @author Zikri
- */
+
 public class MenuUser extends MenuAdmin{
     Scanner scan = new Scanner(System.in);
     private InformasiKolamLele[] info;
     private int jumlahKolam;
-    private Notification notif;
 
     /**
      * 
      */
     
     public void setMax(){
-        info = new InformasiKolamLele[1];
+        info = new InformasiKolamLele[5];
     }
     public void createKolam(InformasiKolamLele newInfo){
         setMax();
@@ -58,7 +50,7 @@ public class MenuUser extends MenuAdmin{
         System.out.println("4. Show Pedoman");
         System.out.println("5. Notifikasi ");
         System.out.println("6. Search Kolam ");
-        System.out.println("0. Quit ");
+        System.out.println("0. LOGOUT ");
         System.out.print("PILIH MENU : ");
     }
 
@@ -87,23 +79,56 @@ public class MenuUser extends MenuAdmin{
                 menu();
                 pilih = scan.nextInt();
             }else if(pilih == 3){
-                MenuAdmin Berita = new MenuAdmin();
+                
 
-                Berita.displayBerita();
+                displayBerita();
                 menu();
                 pilih = scan.nextInt();
             }else if(pilih == 4){
-                MenuAdmin Pedoman = new MenuAdmin();
+               
                 
-                Pedoman.displayPedoman();
+                displayPedoman();
 
                 menu();
                 pilih = scan.nextInt();
             }else if(pilih == 5){
+                Notification notif = new Notification();
+
                 notif.DisplayWaktuBeriPakan();
-                notif.DisplayWaktuBeriPanen();
+                // notif.DisplayWaktuPanen();
                 notif.DisplaywaktuRestockpakan();
+
+                menu();
+                pilih = scan.nextInt();
+            }else if (pilih == 6) {
+                System.out.print("Masukkan Nama Kolam yang ingin dicari : ");
+                String cari = scan.next();
+                int j = cariKolam(cari);
+                
+                if (j != -1){
+                    System.out.println("Kolam Berhasil Ditemukan");
+                    System.out.println("Nama Kolam             : " + info[j].getNamakolam());
+                    System.out.println("Berat lele             : " + info[j].getBeratlele());
+                    System.out.println("Jumlah lele            : " + info[j].getJumlahlele());
+                    System.out.println("Tanggal tebar benih    : " + info[j].getTglTebarBenih());
+                }else{
+                    System.out.println("KOLAM TIDAK ADA");
+                }
+                
+                menu();
+                pilih = scan.nextInt();
+            }else{
+                System.out.println("PILIHAN ANDA TIDAK ADA");
             }
         }
     }
+
+    public int cariKolam(String cari){  
+        for (int j = 0; j < info.length; j++) {  
+            if (cari.equals(info[j].getNamakolam())){
+                return j;
+            }
+        }
+        return -1;
+    }  
 }
